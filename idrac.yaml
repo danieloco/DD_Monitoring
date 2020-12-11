@@ -1,0 +1,293 @@
+# Profile for iDRAC devices
+
+extends:
+  - _base.yaml
+  - _dell-rac.yaml
+  - _intel-lan-adapters.yaml
+
+sysobjectid: 1.3.6.1.4.1.674.10892.*
+
+metrics:
+  - OID: 1.3.6.1.4.1.674.10892.5.2.1.0
+    name: Global.System.Status  
+  - OID: 1.3.6.1.4.1.674.10892.5.4.600.50.1.5.1.1
+    name: CMOSBattery.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.2.2.0
+    name: System.Lcd.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.2.4.0
+    name: Overall.System.PowerState
+  - OID: 1.3.6.1.4.1.674.10892.5.2.3.0
+    name: Overall.System.StorageStatus
+  - OID: 1.3.6.1.4.1.674.10892.5.4.600.60.1.15.1.1
+    name: PowerUsage.Minimum.Idle.Power
+  - OID: 1.3.6.1.4.1.674.10892.5.4.600.60.1.5.1.1
+    name: PowerUsage.Sensor.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.37.1
+    name: RaidController.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.4.300.50.1.5.1.1
+    name: Bios.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.12.1
+    name: Voltage.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.4
+    name: Chassis.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.6
+    name: PowerUnit.Redundancy.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.9
+    name: PowerSupply.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.15
+    name: Amp.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.18
+    name: CoolingUnit.Redundancy.Status
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.21
+    name: CoolingDevice.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.24
+    name: Temperature.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.27
+    name: MemoryDevice.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.30
+    name: Chassis.Intrusion.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.42
+    name: PowerUnit.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.44
+    name: CoolingUnit.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.50
+    name: ProcessorDevice.Status.Combined
+  - OID: 1.3.6.1.4.1.674.10892.5.4.200.10.1.63
+    name: Temperature.Statistics.Status.Combined
+
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.2
+      name: DiskIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.11
+        name: Disk.Size
+      - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.4
+        name: Disk.State
+      - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.24
+        name: Disk.Status
+      - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.17
+        name: Disk.Used
+      - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.19
+        name: Disk.Free
+    metric_tags:
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.2
+          name: disk
+        tag: disk
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.32
+          name: ManufactureDay
+        tag: ManufactureDay
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.3
+          name: Manufacturer
+        tag: Manufacturer
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.33
+          name: ManufactureWeek
+        tag: ManufactureWeek
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.34
+          name: ManufactureYear
+        tag: ManufactureYear
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.6
+          name: ModelNumber
+        tag: ModelNumber
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.55
+          name: DiskName
+        tag: DiskName
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.4.1.7
+          name: DiskSerialNumber
+        tag: DiskSerialNumber
+  
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.4.700.12.1.8.1
+      name: FanIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.4.700.12.1.6.1
+        name: Fan.Speed
+      - OID: 1.3.6.1.4.1.674.10892.5.4.700.12.1.5.1
+        name: Fan.Status
+    metric_tags:
+    - column:
+        OID: 1.3.6.1.4.1.674.10892.5.4.700.12.1.8.1
+        name: fan
+      tag: fan
+
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.8.1
+      name: MemorySlotIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.14.1
+        name: Memory.Size
+      - OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.15.1
+        name: Memory.Speed
+      - OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.5.1
+        name: Memory.Status
+    metric_tags:
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.21.1
+          name: Manufacturer
+        tag: Manufacturer
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.22.1
+          name: PartNumber
+        tag: PartNumber
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.23.1
+          name: MemorySerialNumber
+        tag: MemorySerialNumber
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.50.1.8.1
+          name: MemorySlot
+        tag: MemorySlot
+  
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.4.1100.90.1.2.1
+      name: NicIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.4.1100.90.1.4.1
+        name: NIC.ConnectionStatus
+      - OID: 1.3.6.1.4.1.674.10892.5.4.1100.90.1.3.1
+        name: NIC.Status
+    metric_tags:
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.90.1.15.1
+          name: MacAddress
+        tag: MacAddress
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.90.1.6.1
+          name: NICName
+        tag: NICName
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.90.1.30.1
+          name: NICSlot
+        tag: NICSlot
+  
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.4.600.12.1.1.1
+      name: PowerSupplyIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.4.600.12.1.9.1
+        name: PowerSupply.Input.Voltage
+      - OID: 1.3.6.1.4.1.674.10892.5.4.600.12.1.6.1
+        name: PowerSupply.Power.Maximum
+      - OID: 1.3.6.1.4.1.674.10892.5.4.600.12.1.11.1
+        name: PowerSupply.Sensor.State
+      - OID: 1.3.6.1.4.1.674.10892.5.4.600.12.1.4.1
+        name: PowerSupply.State.Settings
+      - OID: 1.3.6.1.4.1.674.10892.5.4.600.12.1.5.1
+        name: Supply.Status
+    metric_tags:
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.600.12.1.1.1
+          name: powersupply
+        tag: powersupply
+  
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.4.1100.32.1.7.1
+      name: ProcessorIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.4.1100.32.1.5.1
+        name: Processor.Status
+    metric_tags:
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.1100.32.1.7.1
+          name: processor
+        tag: processor
+  
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.4.700.20.1.8.1
+      name: TempSensorIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.4.700.20.1.5.1
+        name: TempSensor.Status
+      - OID: 1.3.6.1.4.1.674.10892.5.4.700.20.1.6.1
+        name: TempSensor.Value
+    metric_tags:
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.4.700.20.1.8.1
+          name: TempSensor
+        tag: TempSensor
+  
+  - MIB: IDRAC-MIB
+    table:
+      OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.15
+      name: batteryIndex
+    symbols:
+      - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.15.1.4
+        name: Battery.State
+    metric_tags:
+      - column:
+          OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.15.1.21
+          name: BatteryName
+        tag: BatteryName      
+tags:
+  - model:idrac
+  - vendor:rapdev
+  
+metric_tags:
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.1.0
+    symbol: sysName
+    tag: sysName
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.8.0
+    symbol: sysLocation
+    tag: sysLocation
+  - OID: 1.3.6.1.4.1.674.10892.5.1.1.3.0
+    symbol: sysDescription
+    tag: sysDescription
+  - OID: 1.3.6.1.4.1.674.10892.2.1.1.2.0
+    symbol: softwareVersion
+    tag: softwareVersion
+  - OID: 1.3.6.1.4.1.674.10892.2.1.1.5.0
+    symbol: firmwareVersion
+    tag: firmwareVersion
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.12.0
+    symbol: modelName
+    tag: modelName
+  - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.8.1
+    symbol: raidFirmware
+    tag: raidFirmware
+  - OID: 1.3.6.1.4.1.674.10892.5.4.300.50.1.7.1.1
+    symbol: biosDate
+    tag: biosDate
+  - OID: 1.3.6.1.4.1.674.10892.5.4.300.50.1.8.1.1
+    symbol: biosVersion
+    tag: biosVersion
+  - OID: 1.3.6.1.4.1.674.10892.2.1.1.11.0
+    symbol: serialNumber
+    tag: serialNumber
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.9.0
+    symbol: aisleName
+    tag: aisleName
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.10.0
+    symbol: rackName
+    tag: rackName
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.11.0
+    symbol: rackSlot
+    tag: rackSlot
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.2.0
+    symbol: serviceTag
+    tag: serviceTag
+  - OID: 1.3.6.1.4.1.674.10892.5.1.3.3.0
+    symbol: serviceCode
+    tag: serviceCode
+  - OID: 1.3.6.1.4.1.674.10892.5.5.1.20.130.1.1.2.1
+    symbol: raidControllerName
+    tag: raidControllerName
+  - OID: 1.3.6.1.4.1.674.10892.5.1.1.4.0
+    symbol: manufacturer
+    tag: manufacturer
+  - OID: 1.3.6.1.4.1.674.10892.5.1.1.5.0
+    symbol: chassisVersion
+    tag: chassisVersion
