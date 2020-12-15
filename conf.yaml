@@ -1,0 +1,44 @@
+init_config:
+
+profiles:
+  apc_ups:
+    definition_file: apc_ups.yaml
+  idrac:
+    definition_file: idrac.yaml
+
+instances:
+- ip_address: 10.20.16.52
+  community_string: public
+  profile: apc_ups
+  port: 161
+  snmp_version: 2
+
+- ip_address: 10.20.16.53
+  community_string: public
+  profile: apc_ups
+  port: 161
+  snmp_version: 2
+
+- ip_address: 10.20.16.55
+  community_string: public
+  profile: apc_ups
+  port: 161
+  snmp_version: 2
+
+- ip_address: 10.20.17.31
+  community_string: c8ptur3
+  profile: idrac
+  port: 161
+  snmp_version: 2
+
+metrics:
+        - MIB: UDP-MIB
+          symbol: udpInDatagrams
+        - MIB: TCP-MIB
+          symbol: tcpActiveOpens
+        - OID: 1.3.6.1.2.1.6.5.0
+          name: tcpPassiveOpens
+        - OID: 1.3.6.1.2.1.6.5.0
+          name: tcpPassiveOpens
+          metric_tags:
+                  - TCP
